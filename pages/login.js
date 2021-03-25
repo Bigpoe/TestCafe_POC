@@ -1,21 +1,21 @@
-import { t, Selector} from 'testcafe'
+import { t, Selector } from 'testcafe'
 
 class Login{
 
     constructor(){
         this.emailField = Selector ('#email')
         this.passwordField = Selector ('#password')
-        this.loginButton = Selector ('button').withText('Log in')
+        this.loginButton = Selector ('.submit_btn')
         this.signupButton = Selector ('a').withText('Sign up')
         this.errorMessage = Selector ('.error_msg')
     }
 
     loginProcess = async() => {
         await t
-            .typeText(this.emailField, 'my_email')
-            .typeText(this.passwordField, 'my_password')
+            .typeText(this.emailField, 'email')
+            .typeText(this.passwordField, 'password')
             .click(this.loginButton)
-            // .wait(3000)
+            .wait(5000)
     }
 }
 
